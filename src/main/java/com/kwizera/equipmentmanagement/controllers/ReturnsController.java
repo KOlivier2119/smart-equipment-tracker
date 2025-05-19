@@ -26,4 +26,10 @@ public class ReturnsController {
     public ResponseEntity<List<Returns>> getAllReturns() {
         return ResponseEntity.ok(returnsServices.getAllReturns());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Returns> deleteReturns(@PathVariable Long id) {
+        returnsServices.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

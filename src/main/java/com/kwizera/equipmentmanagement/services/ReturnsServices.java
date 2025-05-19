@@ -19,4 +19,8 @@ public class ReturnsServices {
     public Returns createReturns(Returns returns) {
         return returnsRepository.save(returns);
     }
+
+    public void deleteById(Long id) {
+          returnsRepository.deleteById(id);
+    }
 }

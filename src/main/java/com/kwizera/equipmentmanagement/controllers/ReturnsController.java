@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/returns")
@@ -31,5 +32,10 @@ public class ReturnsController {
     public ResponseEntity<Returns> deleteReturns(@PathVariable Long id) {
         returnsServices.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Returns>> getReturnById(@PathVariable Long id) {
+        return ResponseEntity.ok(returnsServices.findById(id));
     }
 }
